@@ -6,7 +6,7 @@ from pathlib import Path
 
  
 
-RUN_TIME_WORKING_DIR = "module-a"
+RUN_TIME_WORKING_DIR = "module-b"
 
 RUN_TIME_DIFF_DIR = "run_time_diff_dir"
 
