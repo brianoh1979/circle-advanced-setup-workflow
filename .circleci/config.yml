@@ -59,7 +59,7 @@ workflows:
           requires:
             - create_run_time_assembler_diff
           force-all: << pipeline.parameters.force-all >>
-          base-revision: main
+          base-revision: createfile
           # If A is modified, the job for A will run
           # Similarly if B is modified, the job for B will run
           # If C is modified, then the jobs for both C and B (as a dependency) will run
