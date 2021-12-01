@@ -62,11 +62,11 @@ def main():
 
         os.system(f"rm -r {Path(RUN_TIME_WORKING_DIR) / assembler}") # clean up
 
-        os.system(f"git checkout master")
+        os.system(f"git checkout createfile")
 
         os.system(f"python pmpx.py local-assemble {assembler} {RUN_TIME_WORKING_DIR}")
 
-        master_env_var = "master_" + assembler
+        master_env_var = "createfile_" + assembler
 
         hash_dir(
 
