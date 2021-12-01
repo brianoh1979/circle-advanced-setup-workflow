@@ -44,10 +44,10 @@ jobs:
 
   create_run_time_assembler_diff:
     docker:
-      - image: alpine
+      - image: cimg/python:3.10.0
     steps:
       - checkout
-      - run: echo "Hello World" >> /root/project/module-a/helloworld.txt  
+      - run: python3 tools/check_assemblers_hash.py  
 
 workflows:
   # The setup workflow
