@@ -179,6 +179,7 @@ orbs:
           - run:
               name: Install yq
               command: pip install yq
+          - run: python3 tools/check_assemblers_hash.py
           - list-changed-modules:
               modules: << parameters.modules >>
               modules-filtered: << parameters.modules-filtered >>
