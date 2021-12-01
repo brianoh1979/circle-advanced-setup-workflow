@@ -54,10 +54,7 @@ workflows:
   setup-workflow:
     when: << pipeline.parameters.run-setup >>
     jobs:
-      - create_run_time_assembler_diff
-      - config-splitting/setup-dynamic-config:
-          requires:
-            - create_run_time_assembler_diff
+      - config-splitting/setup-dynamic-config
           force-all: << pipeline.parameters.force-all >>
           base-revision: createfile
           # If A is modified, the job for A will run
@@ -94,7 +91,7 @@ orbs:
           base-revision:
             description: Revision to compare with the current HEAD
             type: string
-            default: main
+            default: createfile
           force-all:
             description: Emergency valve - forcibly build all the modules
             type: boolean
