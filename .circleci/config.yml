@@ -54,7 +54,7 @@ workflows:
   setup-workflow:
     when: << pipeline.parameters.run-setup >>
     jobs:
-      - config-splitting/setup-dynamic-config
+      - config-splitting/setup-dynamic-config:
           force-all: << pipeline.parameters.force-all >>
           base-revision: createfile
           # If A is modified, the job for A will run
