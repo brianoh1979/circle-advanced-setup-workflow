@@ -56,7 +56,7 @@ workflows:
     jobs:
       - config-splitting/setup-dynamic-config
           force-all: << pipeline.parameters.force-all >>
-          base-revision: main
+          base-revision: createfile
           # If A is modified, the job for A will run
           # Similarly if B is modified, the job for B will run
           # If C is modified, then the jobs for both C and B (as a dependency) will run
@@ -152,7 +152,7 @@ orbs:
           base-revision:
             description: Revision to compare with the current HEAD
             type: string
-            default: main
+            default: createfile
           force-all:
             description: Emergency valve - forcibly build all the modules
             type: boolean
