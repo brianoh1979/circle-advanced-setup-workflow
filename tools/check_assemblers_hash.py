@@ -76,7 +76,7 @@ def main():
 
         print(master_env_var, os.environ[master_env_var])
 
-        os.system(f"rm -r {Path(RUN_TIME_WORKING_DIR) / assembler}")
+        os.system(f"rm {Path(RUN_TIME_WORKING_DIR) / assembler.py}")
 
         os.system(f"git checkout {current_branch}")
 
