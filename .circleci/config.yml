@@ -173,7 +173,7 @@ orbs:
           - image: cimg/python:3.9
         steps:
           - checkout
-          - run: git fetch --unshallow
+          - run: git fetch
           - run:
               name: Install yq
               command: pip install yq
