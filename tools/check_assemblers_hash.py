@@ -6,7 +6,7 @@ from pathlib import Path
 
  
 
-RUN_TIME_WORKING_DIR = "module-b"
+RUN_TIME_WORKING_DIR = "module-b/README"
 
 RUN_TIME_DIFF_DIR = "run_time_diff_dir"
 
@@ -76,7 +76,7 @@ def main():
 
         print(master_env_var, os.environ[master_env_var])
 
-        os.system(f"rm {Path(RUN_TIME_WORKING_DIR) / assembler.py}")
+        os.system(f"rm {Path(RUN_TIME_WORKING_DIR) / assembler}")
 
         os.system(f"git checkout {current_branch}")
 
