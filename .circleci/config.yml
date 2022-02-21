@@ -45,7 +45,7 @@ jobs:
 workflows:
   # The setup workflow
   setup-workflow:
-    when:
+    when: << pipeline.parameters.run-setup >>
       not:
         equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
     jobs:
