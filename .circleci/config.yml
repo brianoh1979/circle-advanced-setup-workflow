@@ -3,7 +3,7 @@
 
 version: 2.1
 
-setup: << pipeline.parameters.run-setup >>
+setup: true
 
 # All pipeline parameters need to be defined equally both for the setup workflow and main workflows
 # These parameters will be passed to both of them
@@ -45,7 +45,9 @@ jobs:
 workflows:
   # The setup workflow
   setup-workflow:
-    when: << pipeline.parameters.run-setup >>
+    when:
+      not:
+        equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
     jobs:
       - config-splitting/setup-dynamic-config:
           force-all: << pipeline.parameters.force-all >>
