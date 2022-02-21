@@ -182,5 +182,4 @@ orbs:
               continue-config: << parameters.continue-config >>
           - continuation/continue:
               configuration_path: << parameters.continue-config >>
-  #            parameters: '{"run-setup":false}'
-              parameters: '{"setup":false}'
+              parameters: '{"run-setup":false}'
