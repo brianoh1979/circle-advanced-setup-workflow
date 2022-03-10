@@ -46,8 +46,6 @@ workflows:
   # The setup workflow
   setup-workflow:
     when: << pipeline.parameters.run-setup >>
-      not:
-        equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
     jobs:
       - config-splitting/setup-dynamic-config:
           force-all: << pipeline.parameters.force-all >>
