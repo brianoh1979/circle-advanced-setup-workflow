@@ -23,7 +23,8 @@ workflows:
                 command: |
                   PR_NUM=$(git show -s --format=%s $CIRCLE_SHA1|awk '{print $4}'|cut -c 2-)
                   echo $PR_NUM
-                  if $PR_NUM -ne 0; then
+                  if ["$PR_NUM" -ne 0]
+                  then
                     echo '{ "EXEC_WF1": true }' >> /tmp/circleci/config-string.json
                   else
                     echo '{ "EXEC_WF2": true }' >> /tmp/circleci/config-string.json
