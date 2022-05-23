@@ -1,0 +1,38 @@
+# Config for the setup workflow and common resources (jobs, commands) for main workflows
+# `common-` prefix is added for common resources (to avoid conflicts with module resources)
+
+version: 2.1
+
+parameters:
+  EXEC_WF1:
+    type: boolean
+    default: false
+
+  EXEC_WF2:   
+    type: boolean
+    default: false
+
+workflows:
+  # The setup workflow
+  workflow1:
+    when: << pipeline.parameters.EXEC_WF1 >>
+    jobs:
+      - build1
+  
+  workflow2:
+    when: << pipeline.parameters.EXEC_WF2 >>
+    jobs:
+      - build2
+
+jobs:
+  build1:
+    docker:
+      - image: alpine
+    steps:
+      - run: echo 'Hello world from build1' 
+
+  build2:
+    docker:
+      - image: alpine
+    steps:
+      - run: echo 'Hello world from build2'
