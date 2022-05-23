@@ -21,8 +21,8 @@ workflows:
                 name: Determine if we need to persist and export components
                 command: |
                   PR_NUM=$(git show -s --format=%s $CIRCLE_SHA1|awk '{print $4}'|cut -c 2-)
-                  # skip publishing if the bitmap file has no soft tags
-                  if $PR_NUM != 0; then
+                  echo $PR_NUM
+                  if $PR_NUM -ne 0; then
                     echo '{ "EXEC_WF1": true }' >> /home/circleci/test.json
                   else
                     echo '{ "EXEC_WF2": true }' >> /home/circleci/test.json
