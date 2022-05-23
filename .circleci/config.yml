@@ -21,8 +21,8 @@ workflows:
             - run:
                 name: Determine if we need to persist and export components
                 command: |
-                  echo $CIRCLE_PR_NUMBER
-                  if ! -z "$CIRCLE_PR_NUMBER";
+                  echo $CIRCLE_PULL_REQUEST
+                  if [[! -z "$CIRCLE_PULL_REQUEST"]];
                   then
                     echo '{ "EXEC_WF1": true }' >> /home/circleci/test.json
                   else
