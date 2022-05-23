@@ -15,7 +15,7 @@ workflows:
     jobs:
       - continuation/continue:
           configuration_path: ".circleci/continue_config.yml"
-          parameters: /tmp/circleci/config-string.json
+          parameters: /home/circleci/test.json
           pre-steps:
             - checkout
             - run:
