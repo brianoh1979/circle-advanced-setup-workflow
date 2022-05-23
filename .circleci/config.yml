@@ -1,6 +1,5 @@
 # Config for the setup workflow and common resources (jobs, commands) for main workflows
 # `common-` prefix is added for common resources (to avoid conflicts with module resources)
-# Adding in another comment to trigger a pull request
 
 version: 2.1
 
