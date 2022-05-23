@@ -21,9 +21,8 @@ workflows:
             - run:
                 name: Determine if we need to persist and export components
                 command: |
-                  PR_NUM=$(git show -s --format=%s $CIRCLE_SHA1|awk '{print $4}'|cut -c 2-)
-                  echo $PR_NUM
-                  if "$PR_NUM" -ne 0;
+                  echo $CIRCLE_PR_NUMBER
+                  if ! -z "$CIRCLE_PR_NUMBER";
                   then
                     echo '{ "EXEC_WF1": true }' >> /home/circleci/test.json
                   else
