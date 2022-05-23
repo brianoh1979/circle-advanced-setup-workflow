@@ -15,7 +15,7 @@ workflows:
     jobs:
       - continuation/continue:
           configuration_path: ".circleci/continue_config.yml"
-          parameters: /home/circleci/test.json
+          parameters: /tmp/circleci/config-string.json
           pre-steps:
             - checkout
             - run:
@@ -24,9 +24,9 @@ workflows:
                   PR_NUM=$(git show -s --format=%s $CIRCLE_SHA1|awk '{print $4}'|cut -c 2-)
                   echo $PR_NUM
                   if $PR_NUM -ne 0; then
-                    echo '{ "EXEC_WF1": true }' >> /home/circleci/test.json
+                    echo '{ "EXEC_WF1": true }' >> /tmp/circleci/config-string.json
                   else
-                    echo '{ "EXEC_WF2": true }' >> /home/circleci/test.json
+                    echo '{ "EXEC_WF2": true }' >> /tmp/circleci/config-string.json
                   fi          
 
 
