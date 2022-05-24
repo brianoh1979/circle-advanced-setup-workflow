@@ -5,6 +5,15 @@ version: 2.1
 
 setup: true
 
+#parameters:
+#  run_integration_tests:
+#    type: boolean
+#    default: false
+
+#  run_integration_tests2:
+#    type: boolean
+#    default: false
+
 orbs:
   continuation: circleci/continuation@0.2.0
 
@@ -16,12 +25,24 @@ workflows:
           configuration_path: ".circleci/continue_config.yml"
           parameters: /home/circleci/test.json
           pre-steps:
+ #         steps:
+ #           - when:
+ #               condition: <<pipeline.parameters.run_integration_tests>>
+ #               steps:
+ #                 - checkout
+ #                 - run: echo '{ "EXEC_WF1": true }' >> /home/circleci/test.json
+ #           - unless:
+ #               condition: <<pipeline.parameters.run_integration_tests2>>
+ #               steps:
+ #                 - checkout
+ #                 - run: echo '{ "EXEC_WF2": true }' >> /home/circleci/test.json
             - checkout
             - run:
                 name: Determine if we need to persist and export components
                 command: |
-                  echo $CIRCLE_PULL_REQUEST
-                  if [[! -z "$CIRCLE_PULL_REQUEST"]];
+                  PR_NUM=${CIRCLE_PULL_REQUEST##*/}
+                  echo $PR_NUM
+                  if [[! -z "$PR_NUM"]];
                   then
                     echo '{ "EXEC_WF1": true }' >> /home/circleci/test.json
                   else
