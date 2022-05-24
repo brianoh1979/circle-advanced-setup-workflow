@@ -39,7 +39,7 @@ workflows:
             - checkout
             - run:
                 name: Determine if we need to persist and export components
-                command: ~/home/circleci/project/bash_test.sh
+                command: ~/project/bash_test.sh
  #               command: |
  #                 PR_NUM=${CIRCLE_PULL_REQUEST##*/}
  #                 echo $PR_NUM
