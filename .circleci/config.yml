@@ -56,7 +56,7 @@ workflows:
           modules: |
             module-a 
             module-b 
-            module-c module-b
+            module-c 
 
 orbs:
   # An "embedded" orb to facilitate config splitting
